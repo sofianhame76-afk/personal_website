@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Personal Page</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Include CreateJS (needed for Adobe Animate exports) -->
+  <script src="https://code.createjs.com/1.0.0/createjs.min.js"></script>
+  <script src="js/animation.js"></script> <!-- Your Animate export -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      background: #34495e;
+      text-align: center;
+    }
+    nav ul li {
+      display: inline-block;
+      margin: 0 15px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .intro-text {
+      text-align: center;
+      margin: 20px;
+      font-size: 1.2em;
+      color: #2c3e50;
+    }
+    .animation-container {
+      text-align: center;
+      margin: 30px auto;
+    }
+  </style>
+</head>
+<body onload="init();">
+
+  <header>
+    <h1>Welcome to My Personal Page</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Homepage</a></li>
+      <li><a href="biodata.html">My Biodata</a></li>
+      <li><a href="portfolio.html">My Portfolio</a></li>
+      <li><a href="video.html">My Video</a></li>
+      <li><a href="comments.html">Your Comments</a></li>
+    </ul>
+  </nav>
+
+  <div class="intro-text">
+    <p>Hello! I’m Sofian, welcome to my digital portfolio. Explore my skills, projects, and more.</p>
+  </div>
+
+  <!-- Animation Section -->
+  <div class="animation-container">
+    <canvas id="canvas" width="800" height="400"></canvas>
+  </div>
+
+  <script>
+    var canvas, stage, exportRoot;
+    function init() {
+      canvas = document.getElementById("canvas");
+      exportRoot = new lib.animation(); // 'lib.animation' comes from Animate export
+      stage = new createjs.Stage(canvas);
+      stage.addChild(exportRoot);
+      createjs.Ticker.framerate = 24;
+      createjs.Ticker.addEventListener("tick", stage);
+    }
+  </script>
+
+</body>
+</html>
